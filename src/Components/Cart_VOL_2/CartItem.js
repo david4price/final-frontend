@@ -29,7 +29,7 @@ const CartItem = ({ cartItems, onRemoveHandler, onAddHandler, onDeleteHandler })
           <div className="product-image-cart">
             <img
               className="cart-small-image"
-              src={"http://127.0.0.1:8000" + cartItems.product.image}
+              src={"https://django-shopping-backend.herokuapp.com" + cartItems.product.image}
               alt={cartItems.product.name}
             />
           </div>
@@ -61,7 +61,7 @@ const CartItem = ({ cartItems, onRemoveHandler, onAddHandler, onDeleteHandler })
           <div className="ext-product-image-cart">
             <img
               className="ext-small-image"
-              src={"http://127.0.0.1:8000" + cartItems.product.image}
+              src={"https://django-shopping-backend.herokuapp.com" + cartItems.product.image}
               alt={cartItems.product.name}
             />
           </div>

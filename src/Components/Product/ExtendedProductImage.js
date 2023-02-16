@@ -6,7 +6,7 @@ const ExtendedProductImage = (product) => {
     <div className="ext-product-image">
       <img
         className="ext-small-image"
-        src={"http://127.0.0.1:8000" + product.image}
+        src={"https://django-shopping-backend.herokuapp.com" + product.image}
         alt={product.name}
       />
     </div>

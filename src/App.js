@@ -30,7 +30,7 @@ function App() {
     // promise
     // async await
     const getCartItems = () => {
-      fetch("http://localhost:8000/api/cart-items/")
+      fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/")
         .then((response) => response.json())
         .then((data) => setCartItems(data));
     };
@@ -45,7 +45,7 @@ function App() {
     formData.append("price", product.price);
     formData.append("image", product.image);
 
-    const res = await fetch("http://localhost:8000/api/products/", {
+    const res = await fetch("https://django-shopping-backend.herokuapp.com/api/products/", {
       method: "POST",
       body: formData,
     });
@@ -56,7 +56,7 @@ function App() {
 
   const addToCartHandler = async (productId, quantity) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/cart-items/`, {
+      const response = await fetch(`https://django-shopping-backend.herokuapp.com/api/cart-items/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ productId: productId, quantity: quantity }),
@@ -71,7 +71,7 @@ function App() {
       console.error(err);
     }
     const getCartItems = () => {
-      fetch("http://localhost:8000/api/cart-items/")
+      fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/")
         .then((response) => response.json())
         .then((data) => setCartItems(data));
     };
@@ -81,7 +81,7 @@ function App() {
   const onRemoveHandler = async (productId, quantity) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/cart-items/${productId}/`,
+        `https://django-shopping-backend.herokuapp.com/api/cart-items/${productId}/`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -98,7 +98,7 @@ function App() {
       console.error(err);
     }
     const getCartItems = () => {
-      fetch("http://localhost:8000/api/cart-items/")
+      fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/")
         .then((response) => response.json())
         .then((data) => setCartItems(data));
     };
@@ -108,7 +108,7 @@ function App() {
   const onAddHandler = async (productId) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/cart-items-add/${productId}/`,
+        `https://django-shopping-backend.herokuapp.com/api/cart-items-add/${productId}/`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -125,7 +125,7 @@ function App() {
       console.error(err);
     }
     const getCartItems = () => {
-      fetch("http://localhost:8000/api/cart-items/")
+      fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/")
         .then((response) => response.json())
         .then((data) => setCartItems(data));
     };
@@ -135,7 +135,7 @@ function App() {
   const onDeleteHandler = async (productId) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/cart-items/${productId}/`,
+        `https://django-shopping-backend.herokuapp.com/api/cart-items/${productId}/`,
         {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
@@ -152,7 +152,7 @@ function App() {
       console.error(err);
     }
     const getCartItems = () => {
-      fetch("http://localhost:8000/api/cart-items/")
+      fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/")
         .then((response) => response.json())
         .then((data) => setCartItems(data));
     };
