@@ -17,7 +17,7 @@ function App() {
     // promise
     // async await
     const getProducts = () => {
-      fetch("http://localhost:8000/api/products/")
+      fetch("https://django-shopping-backend.herokuapp.com/api/products/")
         .then((response) => response.json())
         .then((data) => setProducts(data));
     };
