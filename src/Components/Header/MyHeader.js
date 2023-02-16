@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
 
 const MyHeader = () => {
   return (
     <div>
-        <br/>
-      <a href="https://github.com/david4price/final-dance.git">Checkout My GitHub Repository</a>
+      <br />
+      <p>Checkout My GitHub Repository</p>
+      <a href="https://github.com/david4price/final-dance.git">Backend</a>
+      <a href="https://github.com/david4price/final-frontend.git">Frontend</a>
     </div>
-  )
-}
+  );
+};
 
-export default MyHeader
+export default MyHeader;
