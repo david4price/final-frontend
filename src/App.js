@@ -163,12 +163,12 @@ function App() {
 
   const onArchiveHandler = async (productId) => {
     try {
-      // Check if product is in cart
-      const cartItemsResponse = await fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/");
+      const cartItemsResponse = await fetch(
+        "https://django-shopping-backend.herokuapp.com/api/cart-items/"
+      );
       const cartItems = await cartItemsResponse.json();
       const cartItem = cartItems.find((item) => item.product.id === productId);
       if (cartItem) {
-        // Remove product from cart
         const removeCartItemResponse = await fetch(
           `https://django-shopping-backend.herokuapp.com/api/cart-items/${cartItem.id}/`,
           {
@@ -178,8 +178,7 @@ function App() {
         if (!removeCartItemResponse.ok) {
           throw new Error("Failed to remove product from cart");
         }
-        
-        // Get updated cart items list
+
         const getCartItems = () => {
           fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/")
             .then((response) => response.json())
@@ -187,8 +186,7 @@ function App() {
         };
         getCartItems();
       }
-  
-      // Archive product
+
       const archiveProductResponse = await fetch(
         `https://django-shopping-backend.herokuapp.com/api/products-archive/${productId}/`,
         {
@@ -200,9 +198,10 @@ function App() {
       if (!archiveProductResponse.ok) {
         throw new Error("Failed to archive product");
       }
-  
-      // Refresh products list
-      const productsResponse = await fetch("https://django-shopping-backend.herokuapp.com/api/products/");
+
+      const productsResponse = await fetch(
+        "https://django-shopping-backend.herokuapp.com/api/products/"
+      );
       const products = await productsResponse.json();
       setProducts(products);
     } catch (err) {
