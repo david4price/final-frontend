@@ -122,14 +122,14 @@
     flex-flow: column-reverse;
     justify-content: flex-start;
     flex: 1;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
   }
 
   .ext-product-item__description h2 {
     display: flex;
     color: #3a3a3a;
-    font-size: 1rem;
+    font-size: 1.3rem;
     flex: 1;
     margin: 0 1rem;
     margin-top: 0.5rem;

@@ -7,6 +7,7 @@ input[type="search"] {
   color: rgb(0, 0, 0);
   padding: 12px 20px;
   width: 80%;
+  min-width: 45rem;
   box-sizing: border-box;
   margin-top: 2rem;
   outline: none;
@@ -22,6 +23,6 @@ input[type="search"]:focus {
 @media only screen and (max-width: 580px) {
   input[type="search"] {
     align-items: stretch;
-    margin-right: 1.5rem;
+    margin-right: 1.9rem;
   }
 }
