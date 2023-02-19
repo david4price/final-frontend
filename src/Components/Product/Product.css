@@ -92,7 +92,7 @@
 
 @media only screen and (max-width: 600px) {
   .product-item {
-    max-width: 80%;
+    width: 75vw;
     display: grid;
     justify-content: space-between;
     align-items: center;

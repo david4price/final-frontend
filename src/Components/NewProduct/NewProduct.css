@@ -1,7 +1,6 @@
 .new-product {
     background-color: #a892ee;
-    padding: 1rem;
-    margin: 2rem auto;
+    margin: 1rem auto;
     align-items: center;
     width: 50rem;
     max-width: 100%;
@@ -13,7 +12,8 @@
   .new-product button {
     font: inherit;
     cursor: pointer;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
+    margin: 1rem;
     border: 1px solid #40005d;
     background-color: #40005d;
     color: white;
