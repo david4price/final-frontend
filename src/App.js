@@ -1,13 +1,13 @@
 import { useEffect, useState, Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PrivateRoutes from "./Components/utils/PrivateRoutes";
+// import PrivateRoutes from "./Components/utils/PrivateRoutes";
 
 import ProductsList from "./Components/Product/ProductsList";
 import "./App.css";
 import CartList from "./Components/Cart_VOL_2/CartList";
 import NewProduct from "./Components/NewProduct/NewProduct";
 
-import Header from "./Components/Header/Header";
+// import Header from "./Components/Header/Header";
 import MyHeader from "./Components/Header/MyHeader";
 
 function App() {
@@ -163,9 +163,33 @@ function App() {
 
   const onArchiveHandler = async (productId) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      const response = await fetch(
+      // Check if product is in cart
+      const cartItemsResponse = await fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/");
+      const cartItems = await cartItemsResponse.json();
+      const cartItem = cartItems.find((item) => item.product.id === productId);
+      if (cartItem) {
+        // Remove product from cart
+        const removeCartItemResponse = await fetch(
+          `https://django-shopping-backend.herokuapp.com/api/cart-items/${cartItem.id}/`,
+          {
+            method: "DELETE",
+          }
+        );
+        if (!removeCartItemResponse.ok) {
+          throw new Error("Failed to remove product from cart");
+        }
+        
+        // Get updated cart items list
+        const getCartItems = () => {
+          fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/")
+            .then((response) => response.json())
+            .then((data) => setCartItems(data));
+        };
+        getCartItems();
+      }
+  
+      // Archive product
+      const archiveProductResponse = await fetch(
         `https://django-shopping-backend.herokuapp.com/api/products-archive/${productId}/`,
         {
           method: "DELETE",
@@ -173,13 +197,14 @@ function App() {
           body: JSON.stringify({ productId: productId }),
         }
       );
-
-      if (!response.ok) {
-        throw new Error("Failed to archive!");
+      if (!archiveProductResponse.ok) {
+        throw new Error("Failed to archive product");
       }
-
-      const updatedProducts = products.filter((p) => p.id !== productId);
-      setProducts(updatedProducts);
+  
+      // Refresh products list
+      const productsResponse = await fetch("https://django-shopping-backend.herokuapp.com/api/products/");
+      const products = await productsResponse.json();
+      setProducts(products);
     } catch (err) {
       console.error(err);
     }

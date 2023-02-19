@@ -1,65 +1,67 @@
-
-
-.svg-wrap{
-    height: 35px;
-    margin: 0 auto;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 160px;
-    margin-top: 2rem;
+.svg-wrap {
+  height: 35px;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 140px;
+  margin-top: 2rem;
 }
 
-.shape{
-    fill: transparent;
-    stroke-dasharray: 140 540;
-    stroke-dashoffset: -474;
-    stroke-width: 8px;
-    stroke: rgb(246, 228, 37);
+.shape {
+  fill: transparent;
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -474;
+  stroke-width: 8px;
+  stroke: rgb(246, 228, 37);
 }
 
-.text{
-    color: #fff;
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: 4px;
-    line-height: 35px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    pointer-events: none;
+.text {
+  color: #fff;
+  opacity: 0;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  line-height: 35px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
 }
 
-svg{
-    pointer-events: auto;
-    max-width: 160px;
-    max-height: 40px;
+.svg-wrap:hover .text {
+  opacity: 1;
+}
+
+svg {
+  pointer-events: auto;
+  max-width: 160px;
+  max-height: 40px;
 }
 
 @keyframes draw {
-    0%{
-        stroke-dasharray:  140 540;
-        stroke-dashoffset: -474;
-        stroke-width: 18px;
-    }
-    100%{
-        stroke-dasharray:  760;
-        stroke-dashoffset: 0;
-        stroke-width: 3px;
-    }
+  0% {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 18px;
+  }
+  100% {
+    stroke-dasharray: 760;
+    stroke-dashoffset: 0;
+    stroke-width: 3px;
+  }
 }
 
-.svg-wrap:hover .shape{
-    -webkit-animation: 1s draw linear forwards;
-    animation: 1s draw linear forwards;
+.svg-wrap:hover .shape {
+  -webkit-animation: 1s draw linear forwards;
+  animation: 1s draw linear forwards;
 }
 
-@media only screen and (max-width: 600px){
-    .svg-wrap{
-        margin: auto;
-        margin-top: 3vh;
-    }
-    
+@media only screen and (max-width: 600px) {
+  .svg-wrap {
+    margin: auto;
+    margin-top: 3vh;
+  }
 }

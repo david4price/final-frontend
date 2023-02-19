@@ -1,5 +1,6 @@
 .ext-product-item {
   max-width: 52rem;
+  width: 55vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
