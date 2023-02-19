@@ -159,6 +159,33 @@ function App() {
     getCartItems();
   };
 
+  const onArchiveHandler = async (productId) => {
+    try {
+      const response = await fetch(
+        `https://django-shopping-backend.herokuapp.com/api/cart-items-archive/${productId}/`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ productId: productId }),
+        }
+      );
+      
+      if (!response.ok) {
+        throw new Error("Failed to remove from cart!");
+      }
+      const updatedCart = await response.json();
+      setCartItems(updatedCart);
+    } catch (err) {
+      console.error(err);
+    }
+    const getCartItems = () => {
+      fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/")
+        .then((response) => response.json())
+        .then((data) => setCartItems(data));
+    };
+    getCartItems();
+  };
+
   return (
     <BrowserRouter>
         <Fragment>
@@ -180,6 +207,7 @@ function App() {
                     className="products"
                     products={products}
                     onAddToCart={addToCartHandler}
+                    onArchive={onArchiveHandler}
                   />
                   <NewProduct onAddProduct={addProductHandler} />
                 </>

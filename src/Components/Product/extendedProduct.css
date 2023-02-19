@@ -61,6 +61,7 @@
   padding: 0.5rem;
   border-radius: 12px;
   width: 7.15rem;
+  margin-left: 1vw;
 }
 
 .ext-product-item__button-container button {
@@ -74,6 +75,7 @@
   padding: 0.7rem;
   border-radius: 12px;
   margin-right: 1rem;
+  margin-left: 1vw;
 }
 
 .ext-product-item__button-container button:hover,
@@ -109,12 +111,13 @@
 
 @media only screen and (max-width: 580px) {
   .ext-product-item {
-    max-width: 80%;
+    width: 75vw;
     display: grid;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    margin: 1.5rem 0;
+    margin: auto;
+    margin-top: 2rem;
   }
   .ext-product-item__description {
     display: flex;

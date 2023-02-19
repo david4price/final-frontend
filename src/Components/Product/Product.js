@@ -4,8 +4,9 @@ import "./Product.css";
 import ProductImage from "./ProductImage";
 import "./extendedProduct.css";
 import ExtendedProductImage from "./ExtendedProductImage";
+import ArchiveButton from "./ArchiveButton";
 
-const Product = ({ product, onAddToCart }) => {
+const Product = ({ product, onAddToCart, onArchive }) => {
   const [openProduct, setOpenProduct] = useState(false);
 
   const openProductHandler = () => {
@@ -70,6 +71,9 @@ const Product = ({ product, onAddToCart }) => {
               >
                 Add To Cart
               </button>
+              <ArchiveButton onClick={() => {
+                onArchive(productId)
+              }} />
             </div>
           </div>
         </Card>
