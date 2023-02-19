@@ -162,7 +162,7 @@ function App() {
   const onArchiveHandler = async (productId) => {
     try {
       const response = await fetch(
-        `https://django-shopping-backend.herokuapp.com/api/cart-items-archive/${productId}/`,
+        `https://django-shopping-backend.herokuapp.com/api/products-archive/${productId}/`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
