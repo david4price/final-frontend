@@ -71,9 +71,7 @@ const Product = ({ product, onAddToCart, onArchive }) => {
               >
                 Add To Cart
               </button>
-              <ArchiveButton onClick={() => {
-                onArchive(productId)
-              }} />
+              <ArchiveButton onArchive={() => onArchive(productId)} productId={productId} />
             </div>
           </div>
         </Card>

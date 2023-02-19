@@ -14,8 +14,6 @@ function App() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // promise
-    // async await
     const getProducts = () => {
       fetch("https://django-shopping-backend.herokuapp.com/api/products/")
         .then((response) => response.json())
@@ -27,8 +25,6 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    // promise
-    // async await
     const getCartItems = () => {
       fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/")
         .then((response) => response.json())
@@ -45,10 +41,13 @@ function App() {
     formData.append("price", product.price);
     formData.append("image", product.image);
 
-    const res = await fetch("https://django-shopping-backend.herokuapp.com/api/products/", {
-      method: "POST",
-      body: formData,
-    });
+    const res = await fetch(
+      "https://django-shopping-backend.herokuapp.com/api/products/",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
 
     const data = await res.json();
     setProducts([...products, data]);
@@ -56,11 +55,14 @@ function App() {
 
   const addToCartHandler = async (productId, quantity) => {
     try {
-      const response = await fetch(`https://django-shopping-backend.herokuapp.com/api/cart-items/`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ productId: productId, quantity: quantity }),
-      });
+      const response = await fetch(
+        `https://django-shopping-backend.herokuapp.com/api/cart-items/`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ productId: productId, quantity: quantity }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to add to cart!");
@@ -88,7 +90,7 @@ function App() {
           body: JSON.stringify({ productId: productId }),
         }
       );
-      
+
       if (!response.ok) {
         throw new Error("Failed to remove from cart!");
       }
@@ -115,7 +117,7 @@ function App() {
           body: JSON.stringify({ productId: productId }),
         }
       );
-      
+
       if (!response.ok) {
         throw new Error("Failed to remove from cart!");
       }
@@ -142,7 +144,7 @@ function App() {
           body: JSON.stringify({ productId: productId }),
         }
       );
-      
+
       if (!response.ok) {
         throw new Error("Failed to remove from cart!");
       }
@@ -161,38 +163,35 @@ function App() {
 
   const onArchiveHandler = async (productId) => {
     try {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       const response = await fetch(
         `https://django-shopping-backend.herokuapp.com/api/products-archive/${productId}/`,
         {
-          method: "PUT",
+          method: "DELETE",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ productId: productId }),
         }
       );
-      
+
       if (!response.ok) {
-        throw new Error("Failed to remove from cart!");
+        throw new Error("Failed to archive!");
       }
-      const updatedCart = await response.json();
-      setCartItems(updatedCart);
+
+      const updatedProducts = products.filter((p) => p.id !== productId);
+      setProducts(updatedProducts);
     } catch (err) {
       console.error(err);
     }
-    const getCartItems = () => {
-      fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/")
-        .then((response) => response.json())
-        .then((data) => setCartItems(data));
-    };
-    getCartItems();
   };
 
   return (
     <BrowserRouter>
-        <Fragment>
-          <div className="App">
-            {/* <Header /> */}
-            <Routes>
-              <Route
+      <Fragment>
+        <div className="App">
+          {/* <Header /> */}
+          <Routes>
+            <Route
               path="/"
               element={
                 <>
@@ -213,7 +212,7 @@ function App() {
                 </>
               }
             />
-              {/* <Route element={<PrivateRoutes />}>
+            {/* <Route element={<PrivateRoutes />}>
                 <Route
                   path="/"
                   element={
@@ -232,10 +231,10 @@ function App() {
                   }
                 />
               </Route> */}
-              {/* <Route path="/login" element={<LoginPage />} exact /> */}
-            </Routes>
-          </div>
-        </Fragment>
+            {/* <Route path="/login" element={<LoginPage />} exact /> */}
+          </Routes>
+        </div>
+      </Fragment>
     </BrowserRouter>
     // <div>
     //   {/* <Cart myCartItems={cartItems} /> */}
