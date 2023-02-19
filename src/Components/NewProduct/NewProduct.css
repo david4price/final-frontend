@@ -2,6 +2,7 @@
     background-color: #a892ee;
     padding: 1rem;
     margin: 2rem auto;
+    align-items: center;
     width: 50rem;
     max-width: 100%;
     border-radius: 12px;
@@ -17,7 +18,6 @@
     background-color: #40005d;
     color: white;
     border-radius: 12px;
-    margin-right: 1rem;
   }
   
   .new-product button:hover,
@@ -35,4 +35,14 @@
   .new-product button.alternative:hover,
   .new-product button.alternative:active {
     background-color: #ddb3f8;
+  }
+
+  @media only screen and (max-width: 600px){
+    .new-product {
+      width: 80vw !important;
+    }
+    .new-product button {
+      padding: 1rem;
+      margin-left: 1rem;
+    }
   }

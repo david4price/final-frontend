@@ -19,10 +19,16 @@
     padding: 0.5rem;
     border-radius: 6px;
     border: 1px solid #ccc;
-    width: 20rem;
+    width: 42rem;
     max-width: 100%;
   }
   
   .new-product__actions {
     text-align: right;
   }
+
+@media only screen and (max-width: 600px) {
+.new-product__control input {
+  width: 50vw !important;
+}
+}
