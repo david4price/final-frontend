@@ -7,7 +7,6 @@ input[type="search"] {
   color: rgb(0, 0, 0);
   padding: 12px 20px;
   width: 80%;
-  min-width: 45rem;
   box-sizing: border-box;
   margin-top: 2rem;
   outline: none;

@@ -6,7 +6,9 @@
   padding: 1rem;
   margin: 3.5rem 0;
   background-color: #4b4b4b;
-  border: 3px solid #35004e;
+  border: 3px solid rgb(246, 228, 37);
+  box-shadow: 0 0 60px rgb(195, 195, 195)
+
 }
 
 .ext-product-item:hover {
@@ -22,7 +24,7 @@
   flex-flow: column-reverse;
   justify-content: flex-start;
   flex: 1;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   align-items: center !important;
 }
@@ -39,7 +41,7 @@
 .ext-product-item h2 {
   display: flex;
   color: #3a3a3a;
-  font-size: 1rem;
+  font-size: 1.3rem;
   flex: 1;
   margin: 0 1rem;
   color: white;

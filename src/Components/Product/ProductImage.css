@@ -1,8 +1,8 @@
 .product-image {
   display: flex;
   flex-direction: column;
-  width: 10rem;
-  height: 10rem;
+  width: 12rem;
+  height: 12rem;
   border: 1px solid #000000;
   background-color: #2a2a2a;
   color: white;

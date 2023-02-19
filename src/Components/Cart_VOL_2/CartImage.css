@@ -1,8 +1,8 @@
 .product-image-cart {
     display: flex;
     flex-direction: column;
-    width: 12rem;
-    height: 12rem;
+    width: 15rem;
+    height: 15rem;
     border: 1px solid #000000;
     background-color: #2a2a2a;
     color: white;
@@ -14,7 +14,7 @@
   .cart-small-image {
     max-width: 95%;
     height: auto;
-    border-radius: 5%;
+    border-radius: 3%;
   }
   
 
