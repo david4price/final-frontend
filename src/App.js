@@ -98,7 +98,6 @@ function App() {
       if (!response.ok) {
         throw new Error("Failed to remove from cart!");
       }
-      alert(`Product Updated In Cart`)
       const updatedCart = await response.json();
       setCartItems(updatedCart);
     } catch (err) {
@@ -126,7 +125,6 @@ function App() {
       if (!response.ok) {
         throw new Error("Failed to remove from cart!");
       }
-      alert(`Product Updated In Cart`)
       const updatedCart = await response.json();
       setCartItems(updatedCart);
     } catch (err) {
@@ -154,7 +152,6 @@ function App() {
       if (!response.ok) {
         throw new Error("Failed to remove from cart!");
       }
-      alert(`Product Removed From Cart`)
       const updatedCart = await response.json();
       setCartItems(updatedCart);
     } catch (err) {
@@ -185,7 +182,6 @@ function App() {
         if (!removeCartItemResponse.ok) {
           throw new Error("Failed to remove product from cart");
         }
-        alert(`Product Has Been Archived!`)
         const getCartItems = () => {
           fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/")
             .then((response) => response.json())
