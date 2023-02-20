@@ -41,10 +41,10 @@ const CartItem = ({ cartItems, onRemoveHandler, onAddHandler, onDeleteHandler })
           </div>
           <div className="cart-item__button-container-main">
             <div className="cart-item__price">₪{cartItems.product.price}</div>
+            <div className="cart-item__quantity">{cartItems.quantity}</div>
             <div className="cart-item__total-price">
               Total: ₪{total.toFixed(2)}
             </div>
-            <div className="cart-item__quantity">{cartItems.quantity}</div>
             <button
               className="cart-item__remove-btn"
               onClick={() => {
@@ -73,10 +73,10 @@ const CartItem = ({ cartItems, onRemoveHandler, onAddHandler, onDeleteHandler })
           </div>
           <div className="cart-item__button-container-main">
             <div className="cart-item__price">₪{cartItems.product.price}</div>
+            <div className="cart-item__quantity">{cartItems.quantity}</div>
             <div className="cart-item__total-price">
               Total: ₪{total.toFixed(2)}
             </div>
-            <div className="cart-item__quantity">{cartItems.quantity}</div>
             <button
               className="cart-item__add-btn-sm"
               onClick={() => {

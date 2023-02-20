@@ -70,6 +70,7 @@ function App() {
       if (!response.ok) {
         throw new Error("Failed to add to cart!");
       }
+      alert(`${quantity} Product Added To Cart`)
       const updatedCart = await response.json();
       setCartItems(updatedCart);
     } catch (err) {
@@ -97,6 +98,7 @@ function App() {
       if (!response.ok) {
         throw new Error("Failed to remove from cart!");
       }
+      alert(`Product Updated In Cart`)
       const updatedCart = await response.json();
       setCartItems(updatedCart);
     } catch (err) {
@@ -110,7 +112,7 @@ function App() {
     getCartItems();
   };
 
-  const onAddHandler = async (productId) => {
+  const onAddHandler = async (productId, quantity) => {
     try {
       const response = await fetch(
         `https://django-shopping-backend.herokuapp.com/api/cart-items-add/${productId}/`,
@@ -124,6 +126,7 @@ function App() {
       if (!response.ok) {
         throw new Error("Failed to remove from cart!");
       }
+      alert(`Product Updated In Cart`)
       const updatedCart = await response.json();
       setCartItems(updatedCart);
     } catch (err) {
@@ -151,6 +154,7 @@ function App() {
       if (!response.ok) {
         throw new Error("Failed to remove from cart!");
       }
+      alert(`Product Removed From Cart`)
       const updatedCart = await response.json();
       setCartItems(updatedCart);
     } catch (err) {
@@ -181,7 +185,7 @@ function App() {
         if (!removeCartItemResponse.ok) {
           throw new Error("Failed to remove product from cart");
         }
-
+        alert(`Product Has Been Archived!`)
         const getCartItems = () => {
           fetch("https://django-shopping-backend.herokuapp.com/api/cart-items/")
             .then((response) => response.json())
@@ -201,7 +205,7 @@ function App() {
       if (!archiveProductResponse.ok) {
         throw new Error("Failed to archive product");
       }
-
+      alert(`Product Has Been Archived!`)
       const productsResponse = await fetch(
         "https://django-shopping-backend.herokuapp.com/api/products/"
       );
