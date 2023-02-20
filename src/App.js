@@ -10,6 +10,9 @@ import NewProduct from "./Components/NewProduct/NewProduct";
 // import Header from "./Components/Header/Header";
 import MyHeader from "./Components/Header/MyHeader";
 
+import NotFound from "./Components/utils/NotFound";
+import ServerError from "./Components/utils/ServerError";
+
 function App() {
   const [products, setProducts] = useState([]);
 
@@ -215,6 +218,9 @@ function App() {
         <div className="App">
           {/* <Header /> */}
           <Routes>
+            <Route path="*" element={<NotFound />} />
+            <Route path="/500" element={ServerError} />
+            <Route element={NotFound} />
             <Route
               path="/"
               element={
