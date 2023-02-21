@@ -96,6 +96,7 @@
 @media only screen and (max-width: 600px) {
   .ext-cart-item {
     display: grid;
+    margin-left: -2.3vw;
   }
   .ext-cart-item__description {
     flex-direction: column !important;
