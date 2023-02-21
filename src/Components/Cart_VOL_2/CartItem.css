@@ -111,8 +111,7 @@
     display: grid;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    margin: -1vw;
+    margin-left: -1vw;
   }
 
   .cart-item__description {
