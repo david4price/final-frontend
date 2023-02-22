@@ -52,6 +52,7 @@ const NewProductForm = (props) => {
             id="name"
             value={enteredName}
             onChange={nameChangeHandler}
+            required
           />
         </div>
         <div className="new-product__control">
@@ -61,6 +62,7 @@ const NewProductForm = (props) => {
             id="descrip"
             value={enteredDescription}
             onChange={descriptionChangeHandler}
+            required
           />
         </div>
         <div className="new-product__control">
@@ -72,6 +74,7 @@ const NewProductForm = (props) => {
             step="0.01"
             value={enteredPrice}
             onChange={priceChangeHandler}
+            required
           />
         </div>
         <div className="new-product__control">
@@ -81,6 +84,7 @@ const NewProductForm = (props) => {
             type="file"
             id="image"
             onChange={imageChangeHandler}
+            required
           />
         </div>
       </div>
